@@ -19,7 +19,7 @@ function UserProfile(props) {
   //     // });
   // }
   return (
-    <main className="w-[327px] flex flex-col items-start bg-[#fefefe] rounded-[15px] shadow-light mt-4 pt-5 pl-6">
+    <main className="w-[327px] flex flex-col items-start bg-[#fefefe] rounded-[15px] shadow-light mt-4 mb-[50px] pt-5 pl-6">
       <div className="flex items-center gap-[19px]">
         <img
           className="w-[70px] h-[70px] rounded-full"
@@ -28,13 +28,16 @@ function UserProfile(props) {
               ? `${props.userData.avatar_url}`
               : "https://avatars.githubusercontent.com/u/116306097?v=4"
           }
-          alt=""
+          alt="avatar"
         />
         <div className="flex flex-col items-start">
           <h2 className="text-base text-[#2b3442] font-[700] ml-[2px]">
             {props.userData.name}
           </h2>
-          <a className="text-sm text-[#0079ff] font-[500]" href="">
+          <a
+            className="text-sm text-[#0079ff] font-[500]"
+            href={`${props.userData.html_url}`}
+          >
             @{props.userData.login}
           </a>
           <span className="text-[13px] text-[#697c9a] font-[500] mt-[6px]">
@@ -71,41 +74,82 @@ function UserProfile(props) {
           </span>
         </div>
       </section>
-      <section>
-        <div>
-          <div>
-            <img src="./assets/icon-location.svg" alt="location_icon" />
-            <span>
+      <section className="flex flex-col gap-[17px] mt-6 mb-[50px]">
+        <div className="flex flex-col gap-[17px]">
+          <div className="flex gap-[19px] items-center">
+            <img
+              className={`${
+                props.userData.location ? "opacity-100" : "opacity-50"
+              }`}
+              src="./assets/icon-location.svg"
+              alt="location_icon"
+            />
+            <a
+              className={`${
+                props.userData.location ? "opacity-100" : "opacity-50"
+              } text-[13px] text-[#4b6a9b] font-[500]`}
+            >
               {props.userData.location
                 ? `${props.userData.location}`
                 : "Not Available"}
-            </span>
+            </a>
           </div>
-          <div>
-            <img src="./assets/icon-website.svg" alt="website_icon" />
-            <span>
+          <div className="flex gap-[13px] items-center">
+            <img
+              className={`${
+                props.userData.organizations_url ? "opacity-100" : "opacity-50"
+              }`}
+              src="./assets/icon-website.svg"
+              alt="website_icon"
+            />
+            <a
+              href={props.userData.organizations_url}
+              className={`${
+                props.userData.organizations_url ? "opacity-100" : "opacity-50"
+              } text-[13px] text-[#4b6a9b] font-[500]`}
+            >
               {props.userData.organizations_url
                 ? `${props.userData.organizations_url}`
                 : "Not Available"}
-            </span>
+            </a>
           </div>
         </div>
-        <div>
-          <div>
-            <img src="./assets/icon-twitter.svg" alt="twitter_icon" />
-            <span>
+        <div className="flex flex-col gap-4">
+          <div className="flex gap-[13px] items-center">
+            <img
+              className={`${
+                props.userData.twitter_username ? "opacity-100" : "opacity-50"
+              }`}
+              src="./assets/icon-twitter.svg"
+              alt="twitter_icon"
+            />
+            <a
+              className={`${
+                props.userData.twitter_username ? "opacity-100" : "opacity-50"
+              } text-[13px] text-[#4b6a9b] font-[500]`}
+            >
               {props.userData.twitter_username
                 ? `${props.userData.twitter_username}`
                 : "Not Available"}
-            </span>
+            </a>
           </div>
-          <div>
-            <img src="./assets/icon-company.svg" alt="company_icon" />
-            <span>
+          <div className="flex gap-[13px] items-center">
+            <img
+              className={`${
+                props.userData.company ? "opacity-100" : "opacity-50"
+              }`}
+              src="./assets/icon-company.svg"
+              alt="company_icon"
+            />
+            <a
+              className={`${
+                props.userData.company ? "opacity-100" : "opacity-50"
+              } text-[13px] text-[#4b6a9b] font-[500]`}
+            >
               {props.userData.company
                 ? `${props.userData.company}`
                 : "Not Available"}
-            </span>
+            </a>
           </div>
         </div>
       </section>
