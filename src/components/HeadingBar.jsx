@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 function HeadingBar(props) {
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
 
   const inputHandler = (e) => {
     const value = e.target.value;
@@ -11,6 +11,7 @@ function HeadingBar(props) {
   const getData = async () => {
     const info = await axios.get(`https://api.github.com/users/${inputValue}`);
     props.setUserData(info.data);
+    setInputValue("");
     console.log(info.data);
   };
 
@@ -32,6 +33,7 @@ function HeadingBar(props) {
           alt="search_icon"
         />
         <input
+          value={inputValue}
           onChange={inputHandler}
           className="outline-none w-[184px] text-base text-[#222731] font-[500] placeholder:text-[13px] placeholder:text-[#4b6a9b] placeholder:font-[500] placeholder:leading-[1.92]"
           placeholder="Search GitHub username…"
