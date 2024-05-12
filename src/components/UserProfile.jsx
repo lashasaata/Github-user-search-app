@@ -97,20 +97,18 @@ function UserProfile(props) {
           <div className="flex gap-[13px] items-center">
             <img
               className={`${
-                props.userData.organizations_url ? "opacity-100" : "opacity-50"
+                props.userData.blog ? "opacity-100" : "opacity-50"
               }`}
               src="./assets/icon-website.svg"
               alt="website_icon"
             />
             <a
-              href={props.userData.organizations_url}
+              href={props.userData.blog}
               className={`${
-                props.userData.organizations_url ? "opacity-100" : "opacity-50"
+                props.userData.blog ? "opacity-100" : "opacity-50"
               } text-[13px] text-[#4b6a9b] font-[500]`}
             >
-              {props.userData.organizations_url
-                ? `${props.userData.organizations_url}`
-                : "Not Available"}
+              {props.userData.blog ? `${props.userData.blog}` : "Not Available"}
             </a>
           </div>
         </div>

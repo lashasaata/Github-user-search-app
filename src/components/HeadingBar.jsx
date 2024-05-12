@@ -12,7 +12,6 @@ function HeadingBar(props) {
     const info = await axios.get(`https://api.github.com/users/${inputValue}`);
     props.setUserData(info.data);
     setInputValue("");
-    console.log(info.data);
   };
 
   return (
