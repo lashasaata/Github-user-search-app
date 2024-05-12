@@ -13,6 +13,7 @@ function HeadingBar(props) {
       props.setUserData(info.data);
       setInputValue("");
       setUserError(false);
+      console.log(info.data);
     } catch (error) {
       if (error.response.status == 404) {
         setUserError(true);
@@ -27,7 +28,6 @@ function HeadingBar(props) {
   const enterHandler = (e) => {
     if (e.key === "Enter") {
       getData();
-      console.log("kleo");
     }
   };
 

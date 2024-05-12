@@ -1,23 +1,12 @@
 import { useState } from "react";
 
 function UserProfile(props) {
-  //   const [useTime, setUseTime] = useState({});
-  //   if (props.userData.created_at) {
-  //     const time = props.userData.created_at;
+  // getting date to display joined time
+  const date = new Date(props.userData.created_at);
+  const month = date.toLocaleString("default", { month: "long" });
+  const day = date.getDate();
+  const year = date.getFullYear();
 
-  //     // Create a new Date object from the timestamp
-  //     const dateObj = new Date(time);
-
-  //     // Extract day, month, and year
-  //     const day = dateObj.getUTCDate();
-  //     const month = dateObj.getUTCMonth() + 1; // Month is zero-indexed, so we add 1
-  //     const year = dateObj.getUTCFullYear();
-  //     // setUseTime({
-  //     //   day: day,
-  //     //   month: month,
-  //     //   year: year,
-  //     // });
-  // }
   return (
     <main className="w-[327px] flex flex-col items-start bg-[#fefefe] rounded-[15px] shadow-light mt-4 mb-[50px] pt-5 pl-6">
       <div className="flex items-center gap-[19px]">
@@ -41,7 +30,7 @@ function UserProfile(props) {
             @{props.userData.login}
           </a>
           <span className="text-[13px] text-[#697c9a] font-[500] mt-[6px]">
-            joined at
+            joined at {day} {month} {year}
           </span>
         </div>
       </div>
