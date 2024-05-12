@@ -6,6 +6,7 @@ function UserProfile(props) {
   const month = date.toLocaleString("default", { month: "long" });
   const day = date.getDate();
   const year = date.getFullYear();
+  console.log(date);
 
   return (
     <main className="w-[327px] flex flex-col items-start bg-[#fefefe] rounded-[15px] shadow-light mt-4 mb-[50px] pt-5 pl-6">
@@ -15,22 +16,22 @@ function UserProfile(props) {
           src={
             props.userData.avatar_url
               ? `${props.userData.avatar_url}`
-              : "https://avatars.githubusercontent.com/u/116306097?v=4"
+              : "/public/assets/octocat.png"
           }
           alt="avatar"
         />
         <div className="flex flex-col items-start">
           <h2 className="text-base text-[#2b3442] font-[700] ml-[2px]">
-            {props.userData.name}
+            {props.userData.name ? props.userData.name : "The Octocat"}
           </h2>
           <a
             className="text-sm text-[#0079ff] font-[500]"
-            href={`${props.userData.html_url}`}
+            href={props.userData.html_url ? props.userData.html_url : "#"}
           >
-            @{props.userData.login}
+            @{props.userData.login ? props.userData.login : "octocat"}
           </a>
           <span className="text-[13px] text-[#697c9a] font-[500] mt-[6px]">
-            joined at {day} {month} {year}
+            {day ? `joined at ${day} ${month} ${year}` : "Joined 25 Jan 2011"}
           </span>
         </div>
       </div>
@@ -43,7 +44,7 @@ function UserProfile(props) {
         <div className="flex flex-col gap-2 items-center">
           <span className="text-[11px] text-[#4b6a9b] font-[500]">Repos</span>
           <span className="text-base text-[#2b3442] font-[700]">
-            {props.userData.public_repos}
+            {props.userData.public_repos ? props.userData.public_repos : "8"}
           </span>
         </div>
         <div className="flex flex-col gap-2 items-center">
@@ -51,7 +52,7 @@ function UserProfile(props) {
             Followers
           </span>
           <span className="text-base text-[#2b3442] font-[700]">
-            {props.userData.followers}
+            {props.userData.followers ? props.userData.followers : "3938"}
           </span>
         </div>
         <div className="flex flex-col gap-2 items-center">
@@ -59,7 +60,7 @@ function UserProfile(props) {
             Following
           </span>
           <span className="text-base text-[#2b3442] font-[700]">
-            {props.userData.following}
+            {props.userData.following ? props.userData.following : "9"}
           </span>
         </div>
       </section>
