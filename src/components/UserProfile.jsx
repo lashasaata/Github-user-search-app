@@ -103,7 +103,11 @@ function UserProfile(props) {
               alt="website_icon"
             />
             <a
-              href={props.userData.blog}
+              href={`${
+                props.userData.blog && props.userData.blog !== ""
+                  ? props.userData.blog
+                  : "#"
+              }`}
               className={`${
                 props.userData.blog ? "opacity-100" : "opacity-50"
               } text-[13px] text-[#4b6a9b] font-[500]`}
