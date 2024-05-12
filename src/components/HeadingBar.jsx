@@ -3,11 +3,21 @@ import { useState } from "react";
 
 function HeadingBar(props) {
   const [inputValue, setInputValue] = useState("");
+  const [userError, setUserError] = useState(false);
 
   const getData = async () => {
-    const info = await axios.get(`https://api.github.com/users/${inputValue}`);
-    props.setUserData(info.data);
-    setInputValue("");
+    try {
+      const info = await axios.get(
+        `https://api.github.com/users/${inputValue}`
+      );
+      props.setUserData(info.data);
+      setInputValue("");
+      setUserError(false);
+    } catch (error) {
+      if (error.response.status == 404) {
+        setUserError(true);
+      }
+    }
   };
 
   const inputHandler = (e) => {
@@ -22,7 +32,7 @@ function HeadingBar(props) {
   };
 
   return (
-    <div className="w-[327px] flex flex-col justify-center gap-9 mt-8">
+    <div className="w-[327px] flex flex-col justify-center mt-8">
       <div className="flex items-center justify-between">
         <h1 className="text-[26px] text-[#222731] font-[700] ">devfinder</h1>
         <div className="flex items-center gap-4">
@@ -31,6 +41,13 @@ function HeadingBar(props) {
           </span>
           <img src="./public/assets/icon-moon.svg" alt="moon_icon" />
         </div>
+      </div>
+      <div className="h-5 flex justify-end mt-4 mr-6">
+        {userError ? (
+          <span className="text-sm text-[#f74646] font-[700]">No results</span>
+        ) : (
+          ""
+        )}
       </div>
       <section className="w-[327px] h-[60px] flex items-center justify-center bg-[#fefefe] shadow-light rounded-[15px] gap-[9px]">
         <img
@@ -46,9 +63,13 @@ function HeadingBar(props) {
           placeholder="Search GitHub username…"
           type="text"
         />
-        <span className="text-[15px] text-[#f74646] font-[700] hidden">
-          No results
-        </span>
+        {userError ? (
+          <span className="text-sm text-[#f74646] font-[700] hidden">
+            No results
+          </span>
+        ) : (
+          ""
+        )}
         <button
           onClick={getData}
           className="w-[84px] h-[46px] bg-[#0079ff] rounded-[10px] text-sm text-white font-[700] "
