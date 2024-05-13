@@ -30,7 +30,7 @@ function App() {
   }, []); // This useEffect runs only once when the component mounts
 
   return (
-    <div className="h-screen flex flex-col items-center bg-[#f6f8ff]">
+    <div className="h-scroll flex flex-col items-center bg-[#f6f8ff]">
       <HeadingBar setUserData={setUserData} />
       <UserProfile userData={userData} />
     </div>
