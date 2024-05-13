@@ -8,10 +8,10 @@ function UserProfile(props) {
   const year = date.getFullYear();
 
   return (
-    <main className="w-[327px] flex flex-col items-start bg-[#fefefe] rounded-[15px] shadow-light mt-4 mb-[50px] pt-5 pl-6">
-      <div className="flex items-center gap-[19px]">
+    <main className="w-[327px] md:w-[573px] flex flex-col items-start bg-[#fefefe] rounded-[15px] shadow-light mt-4 md:mt-6 mb-[50px] md:mb-[60px] pt-5 pl-6 md:p-10">
+      <div className="flex items-center gap-[19px] md:gap-[41px]">
         <img
-          className="w-[70px] h-[70px] rounded-full"
+          className="w-[70px] md:w-[117px] h-[70px] md:h-[117px] rounded-full"
           src={
             props.userData.avatar_url
               ? `${props.userData.avatar_url}`
@@ -20,56 +20,58 @@ function UserProfile(props) {
           alt="avatar"
         />
         <div className="flex flex-col items-start">
-          <h2 className="text-base text-[#2b3442] font-[700] ml-[2px]">
+          <h2 className="text-base md:text-[26px] text-[#2b3442] font-[700] ml-[2px] md:ml-0">
             {props.userData.name ? props.userData.name : ""}
           </h2>
           <a
-            className="text-sm text-[#0079ff] font-[500]"
+            className="text-sm md:text-base text-[#0079ff] font-[500]"
             href={props.userData.html_url ? props.userData.html_url : "#"}
           >
             @{props.userData.login ? props.userData.login : ""}
           </a>
-          <span className="text-[13px] text-[#697c9a] font-[500] mt-[6px]">
+          <span className="text-[13px] md:text-[15px] text-[#697c9a] font-[500] mt-[6px] md:mt-1">
             {day ? `joined at ${day} ${month} ${year}` : "Joined 25 Jan 2011"}
           </span>
         </div>
       </div>
-      <p className="w-[279px] mt-[33px] text-[13px] text-[#4b6a9b] font-[500] leading-[1.92]">
+      <p className="w-[279px] md:w-auto mt-[33px] md:mt-6 text-[13px] md:text-[15px] text-[#4b6a9b] font-[500] leading-[1.92] md:leading-[1.67]">
         {props.userData.bio
           ? `${props.userData.bio}`
           : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."}
       </p>
-      <section className="w-[279px] h-[85px] bg-[#f6f8ff] rounded-[10px] flex items-center justify-center gap-10 mt-[23px]">
-        <div className="flex flex-col gap-2 items-center">
-          <span className="text-[11px] text-[#4b6a9b] font-[500]">Repos</span>
-          <span className="text-base text-[#2b3442] font-[700]">
+      <section className="w-[279px] md:w-[493px] h-[85px] bg-[#f6f8ff] rounded-[10px] flex items-center md:items-start justify-center md:justify-start gap-10 md:gap-[82px] mt-[23px] md:mt-8 md:pt-[15px] md:pl-8">
+        <div className="flex flex-col gap-2 md:gap-[2px] items-center md:items-start md:mr-[17px]">
+          <span className="text-[11px] md:text-[13px] text-[#4b6a9b] font-[500]">
+            Repos
+          </span>
+          <span className="text-base md:text-[22px] text-[#2b3442] font-[700]">
             {props.userData.public_repos || props.userData.public_repos == 0
               ? props.userData.public_repos
               : "0"}
           </span>
         </div>
-        <div className="flex flex-col gap-2 items-center">
-          <span className="text-[11px] text-[#4b6a9b] font-[500]">
+        <div className="flex flex-col gap-2 md:gap-[2px] items-center md:items-start">
+          <span className="text-[11px] md:text-[13px] text-[#4b6a9b] font-[500]">
             Followers
           </span>
-          <span className="text-base text-[#2b3442] font-[700]">
+          <span className="text-base md:text-[22px] text-[#2b3442] font-[700]">
             {props.userData.followers || props.userData.followers == 0
               ? props.userData.followers
               : "0"}
           </span>
         </div>
-        <div className="flex flex-col gap-2 items-center">
-          <span className="text-[11px] text-[#4b6a9b] font-[500]">
+        <div className="flex flex-col gap-2 md:gap[2px] items-center md:items-start">
+          <span className="text-[11px] md:text-[13px] text-[#4b6a9b] font-[500]">
             Following
           </span>
-          <span className="text-base text-[#2b3442] font-[700]">
+          <span className="text-base md:text-[22px] text-[#2b3442] font-[700]">
             {props.userData.following || props.userData.following == 0
               ? props.userData.following
               : "0"}
           </span>
         </div>
       </section>
-      <section className="flex flex-col gap-[17px] mt-6 mb-[50px]">
+      <section className="flex flex-col md:flex-row gap-[17px] md:gap-[85px] mt-6 md:mt-[34px] mb-[50px] md:mb-0">
         <div className="flex flex-col gap-[17px]">
           <div className="flex gap-[19px] items-center">
             <img
@@ -82,7 +84,7 @@ function UserProfile(props) {
             <a
               className={`${
                 props.userData.location ? "opacity-100" : "opacity-50"
-              } text-[13px] text-[#4b6a9b] font-[500]`}
+              } text-[13px] md:text-[15px] text-[#4b6a9b] font-[500]`}
             >
               {props.userData.location
                 ? `${props.userData.location}`
@@ -105,14 +107,14 @@ function UserProfile(props) {
               }`}
               className={`${
                 props.userData.blog ? "opacity-100" : "opacity-50"
-              } text-[13px] text-[#4b6a9b] font-[500]`}
+              } text-[13px] md:text-[15px] text-[#4b6a9b] font-[500]`}
             >
               {props.userData.blog ? `${props.userData.blog}` : "Not Available"}
             </a>
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <div className="flex gap-[13px] items-center">
+          <div className="flex gap-[13px] md:gap-[16px] items-center">
             <img
               className={`${
                 props.userData.twitter_username ? "opacity-100" : "opacity-50"
@@ -123,14 +125,14 @@ function UserProfile(props) {
             <a
               className={`${
                 props.userData.twitter_username ? "opacity-100" : "opacity-50"
-              } text-[13px] text-[#4b6a9b] font-[500]`}
+              } text-[13px] md:text-[15px] text-[#4b6a9b] font-[500]`}
             >
               {props.userData.twitter_username
                 ? `${props.userData.twitter_username}`
                 : "Not Available"}
             </a>
           </div>
-          <div className="flex gap-[13px] items-center">
+          <div className="flex gap-[13px] md:gap-4 items-center">
             <img
               className={`${
                 props.userData.company ? "opacity-100" : "opacity-50"
@@ -141,7 +143,7 @@ function UserProfile(props) {
             <a
               className={`${
                 props.userData.company ? "opacity-100" : "opacity-50"
-              } text-[13px] text-[#4b6a9b] font-[500]`}
+              } text-[13px] md:text-[15px] text-[#4b6a9b] font-[500]`}
             >
               {props.userData.company
                 ? `${props.userData.company}`
