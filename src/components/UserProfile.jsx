@@ -1,12 +1,11 @@
 import { useState } from "react";
 
 function UserProfile(props) {
-  // getting date to display joined time
+  // getting date to display user joined time
   const date = new Date(props.userData.created_at);
   const month = date.toLocaleString("default", { month: "long" });
   const day = date.getDate();
   const year = date.getFullYear();
-  console.log(date);
 
   return (
     <main className="w-[327px] flex flex-col items-start bg-[#fefefe] rounded-[15px] shadow-light mt-4 mb-[50px] pt-5 pl-6">
@@ -22,13 +21,13 @@ function UserProfile(props) {
         />
         <div className="flex flex-col items-start">
           <h2 className="text-base text-[#2b3442] font-[700] ml-[2px]">
-            {props.userData.name ? props.userData.name : "The Octocat"}
+            {props.userData.name ? props.userData.name : ""}
           </h2>
           <a
             className="text-sm text-[#0079ff] font-[500]"
             href={props.userData.html_url ? props.userData.html_url : "#"}
           >
-            @{props.userData.login ? props.userData.login : "octocat"}
+            @{props.userData.login ? props.userData.login : ""}
           </a>
           <span className="text-[13px] text-[#697c9a] font-[500] mt-[6px]">
             {day ? `joined at ${day} ${month} ${year}` : "Joined 25 Jan 2011"}
@@ -44,7 +43,9 @@ function UserProfile(props) {
         <div className="flex flex-col gap-2 items-center">
           <span className="text-[11px] text-[#4b6a9b] font-[500]">Repos</span>
           <span className="text-base text-[#2b3442] font-[700]">
-            {props.userData.public_repos ? props.userData.public_repos : "8"}
+            {props.userData.public_repos || props.userData.public_repos == 0
+              ? props.userData.public_repos
+              : "0"}
           </span>
         </div>
         <div className="flex flex-col gap-2 items-center">
@@ -52,7 +53,9 @@ function UserProfile(props) {
             Followers
           </span>
           <span className="text-base text-[#2b3442] font-[700]">
-            {props.userData.followers ? props.userData.followers : "3938"}
+            {props.userData.followers || props.userData.followers == 0
+              ? props.userData.followers
+              : "0"}
           </span>
         </div>
         <div className="flex flex-col gap-2 items-center">
@@ -60,7 +63,9 @@ function UserProfile(props) {
             Following
           </span>
           <span className="text-base text-[#2b3442] font-[700]">
-            {props.userData.following ? props.userData.following : "9"}
+            {props.userData.following || props.userData.following == 0
+              ? props.userData.following
+              : "0"}
           </span>
         </div>
       </section>

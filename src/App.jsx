@@ -4,7 +4,18 @@ import "./App.css";
 import UserProfile from "./components/UserProfile";
 
 function App() {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({
+    name: "The Octocat",
+    login: "octocat",
+    bio: "",
+    public_repos: 8,
+    followers: 3938,
+    following: 9,
+    lovation: "San Francisco",
+    blog: "https://github.blog",
+    twitter_username: null,
+    company: "@github",
+  });
   const storedData = localStorage.getItem("userData");
 
   useEffect(() => {
