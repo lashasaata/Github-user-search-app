@@ -17,19 +17,23 @@ function App() {
     company: "@github",
   });
   const storedData = localStorage.getItem("userData");
+  const storedDarkMode = localStorage.getItem("darkMode");
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }, [userData]);
-
-  useEffect(() => {
-    // Parse storedData back to an object when component mounts
     if (storedData) {
       setUserData(JSON.parse(storedData));
     }
+    if (storedDarkMode) {
+      setDarkMode(JSON.parse(storedDarkMode));
+    }
   }, []); // This useEffect runs only once when the component mounts
 
-  const [darkMode, setDarkMode] = useState(true);
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [userData, darkMode]);
+
   return (
     <div
       className={`${

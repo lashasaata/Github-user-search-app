@@ -31,6 +31,10 @@ function HeadingBar(props) {
     }
   };
 
+  const darkModeHandler = () => {
+    props.setDarkMode(!props.darkMode);
+  };
+
   return (
     <div className="w-[327px] md:w-[573px] lg:w-[730px] flex flex-col justify-center mt-8 md:mt-10">
       <div className="flex items-center justify-between">
@@ -41,7 +45,10 @@ function HeadingBar(props) {
         >
           devfinder
         </h1>
-        <div className="flex items-center gap-4 hover:cursor-pointer">
+        <div
+          onClick={darkModeHandler}
+          className="flex items-center gap-4 hover:cursor-pointer"
+        >
           <span
             className={`${
               props.darkMode
