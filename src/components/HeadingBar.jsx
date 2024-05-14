@@ -34,12 +34,36 @@ function HeadingBar(props) {
   return (
     <div className="w-[327px] md:w-[573px] lg:w-[730px] flex flex-col justify-center mt-8 md:mt-10">
       <div className="flex items-center justify-between">
-        <h1 className="text-[26px] text-[#222731] font-[700] ">devfinder</h1>
-        <div className="flex items-center gap-4">
-          <span className="text-[13px] text-[#4b6a9b] font-[700] tracking-[2.5px]">
+        <h1
+          className={`${
+            props.darkMode ? "text-white" : "text-[#222731]"
+          } text-[26px] font-[700]`}
+        >
+          devfinder
+        </h1>
+        <div className="flex items-center gap-4 hover:cursor-pointer">
+          <span
+            className={`${
+              props.darkMode
+                ? "text-white hover:text-[#90a4d4]"
+                : "text-[#4b6a9b] hover:text-[#222731]"
+            } text-[13px] font-[700] tracking-[2.5px]`}
+          >
             DARK
           </span>
-          <img src="./public/assets/icon-moon.svg" alt="moon_icon" />
+          {props.darkMode ? (
+            <img
+              src="./public/assets/icon-sun.svg"
+              alt="moon_icon"
+              className=""
+            />
+          ) : (
+            <img
+              src="./public/assets/icon-moon.svg"
+              alt="sun_icon"
+              className=""
+            />
+          )}
         </div>
       </div>
       <div className="h-5 flex justify-end mt-4 mr-6">
@@ -51,7 +75,11 @@ function HeadingBar(props) {
           ""
         )}
       </div>
-      <section className="w-[327px] md:w-[573px] lg:w-[730px] h-[60px] md:h-[69px] flex items-center justify-center md:justify-between bg-[#fefefe] shadow-light rounded-[15px] gap-[9px]  md:gap-0 md:pl-[32px] md:pr-[10px]">
+      <section
+        className={`${
+          props.darkMode ? "bg-[#1e2a47]" : "bg-[#fefefe]"
+        } w-[327px] md:w-[573px] lg:w-[730px] h-[60px] md:h-[69px] flex items-center justify-center md:justify-between  shadow-light rounded-[15px] gap-[9px]  md:gap-0 md:pl-[32px] md:pr-[10px]`}
+      >
         <div className="flex itens-center gap-[9px] md:gap-6">
           <img
             className="w-5 md:w-6 h-5 md:h-6"
@@ -62,7 +90,11 @@ function HeadingBar(props) {
             value={inputValue}
             onChange={inputHandler}
             onKeyDown={enterHandler}
-            className="outline-none w-[184px] md:w-[260px] lg:w-[300px] text-base md:text-lg text-[#222731] font-[500] placeholder:text-[13px] md:placeholder:text-lg placeholder:text-[#4b6a9b] placeholder:font-[500] placeholder:leading-[1.92] mt-[-3px]"
+            className={`${
+              props.darkMode
+                ? "bg-[#1e2a47] text-white placeholder:text-white"
+                : "text-[#222731] placeholder:text-[#4b6a9b] "
+            } outline-none w-[184px] md:w-[260px] lg:w-[300px] text-base md:text-lg font-[500] placeholder:text-[13px] md:placeholder:text-lg placeholder:font-[500] placeholder:leading-[1.92] mt-[-3px] lg:mt-[-1px] caret-blue-500`}
             placeholder="Search GitHub username…"
             type="text"
           />
@@ -77,7 +109,7 @@ function HeadingBar(props) {
           )}
           <button
             onClick={getData}
-            className="w-[84px] md:w-[106px] h-[46px] md:h-[50] bg-[#0079ff] rounded-[10px] text-sm md:text-base text-white font-[700] "
+            className="w-[84px] md:w-[106px] h-[46px] md:h-[50] bg-[#0079ff] rounded-[10px] text-sm md:text-base text-white font-[700] hover:bg-[#60abff]"
           >
             Search
           </button>

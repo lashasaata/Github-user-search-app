@@ -29,10 +29,19 @@ function App() {
     }
   }, []); // This useEffect runs only once when the component mounts
 
+  const [darkMode, setDarkMode] = useState(true);
   return (
-    <div className="h-scroll flex flex-col items-center bg-[#f6f8ff]">
-      <HeadingBar setUserData={setUserData} />
-      <UserProfile userData={userData} />
+    <div
+      className={`${
+        darkMode ? "bg-[#141d2f]" : "bg-[#f6f8ff]"
+      } h-scroll flex flex-col items-center `}
+    >
+      <HeadingBar
+        setUserData={setUserData}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
+      <UserProfile userData={userData} darkMode={darkMode} />
     </div>
   );
 }
