@@ -32,7 +32,7 @@ function HeadingBar(props) {
   };
 
   return (
-    <div className="w-[327px] md:w-[573px] flex flex-col justify-center mt-8 md:mt-10">
+    <div className="w-[327px] md:w-[573px] lg:w-[730px] flex flex-col justify-center mt-8 md:mt-10">
       <div className="flex items-center justify-between">
         <h1 className="text-[26px] text-[#222731] font-[700] ">devfinder</h1>
         <div className="flex items-center gap-4">
@@ -51,7 +51,7 @@ function HeadingBar(props) {
           ""
         )}
       </div>
-      <section className="w-[327px] md:w-[573px] h-[60px] md:h-[69px] flex items-center justify-center md:justify-between bg-[#fefefe] shadow-light rounded-[15px] gap-[9px]  md:gap-0 md:pl-[32px] md:pr-[10px]">
+      <section className="w-[327px] md:w-[573px] lg:w-[730px] h-[60px] md:h-[69px] flex items-center justify-center md:justify-between bg-[#fefefe] shadow-light rounded-[15px] gap-[9px]  md:gap-0 md:pl-[32px] md:pr-[10px]">
         <div className="flex itens-center gap-[9px] md:gap-6">
           <img
             className="w-5 md:w-6 h-5 md:h-6"
@@ -62,7 +62,7 @@ function HeadingBar(props) {
             value={inputValue}
             onChange={inputHandler}
             onKeyDown={enterHandler}
-            className="outline-none w-[184px] md:w-[260px] text-base md:text-lg text-[#222731] font-[500] placeholder:text-[13px] md:placeholder:text-lg placeholder:text-[#4b6a9b] placeholder:font-[500] placeholder:leading-[1.92] mt-[-3px]"
+            className="outline-none w-[184px] md:w-[260px] lg:w-[300px] text-base md:text-lg text-[#222731] font-[500] placeholder:text-[13px] md:placeholder:text-lg placeholder:text-[#4b6a9b] placeholder:font-[500] placeholder:leading-[1.92] mt-[-3px]"
             placeholder="Search GitHub username…"
             type="text"
           />
