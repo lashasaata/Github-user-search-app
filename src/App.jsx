@@ -7,7 +7,7 @@ function App() {
   const [userData, setUserData] = useState({
     name: "The Octocat",
     login: "octocat",
-    bio: "",
+    bio: " Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.",
     public_repos: 8,
     followers: 3938,
     following: 9,

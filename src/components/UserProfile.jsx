@@ -37,7 +37,7 @@ function UserProfile(props) {
       <p className="w-[279px] md:w-auto mt-[33px] md:mt-6 text-[13px] md:text-[15px] text-[#4b6a9b] font-[500] leading-[1.92] md:leading-[1.67]">
         {props.userData.bio
           ? `${props.userData.bio}`
-          : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."}
+          : "This profile has no bio."}
       </p>
       <section className="w-[279px] md:w-[493px] h-[85px] bg-[#f6f8ff] rounded-[10px] flex items-center md:items-start justify-center md:justify-start gap-10 md:gap-[82px] mt-[23px] md:mt-8 md:pt-[15px] md:pl-8">
         <div className="flex flex-col gap-2 md:gap-[2px] items-center md:items-start md:mr-[17px]">
