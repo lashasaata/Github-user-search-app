@@ -8,7 +8,11 @@ function UserProfile(props) {
   const year = date.getFullYear();
 
   return (
-    <main className="w-[327px] md:w-[573px] lg:w-[730px] flex flex-col items-start lg:items-end bg-[#fefefe] rounded-[15px] shadow-light mt-4 md:mt-6 mb-[50px] md:mb-[60px] pt-5 pl-6 md:p-10 lg:p-12">
+    <main
+      className={`${
+        props.darkMode ? "bg-[#1e2a47]" : "bg-[#fefefe]"
+      } w-[327px] md:w-[573px] lg:w-[730px] flex flex-col items-start lg:items-end rounded-[15px] shadow-light mt-4 md:mt-6 mb-[50px] md:mb-[60px] pt-5 pl-6 md:p-10 lg:p-12`}
+    >
       <div className="flex items-center lg:items-start gap-[19px] md:gap-[41px] lg:gap-[37px]">
         <img
           className="w-[70px] md:w-[117px] h-[70px] md:h-[117px] rounded-full"
@@ -22,7 +26,11 @@ function UserProfile(props) {
         <div className="flex flex-col items-start">
           <div className="lg:w-[480px] flex justify-between">
             <div className="flex flex-col items-start">
-              <h2 className="text-base md:text-[26px] text-[#2b3442] font-[700] ml-[2px] md:ml-0">
+              <h2
+                className={`${
+                  props.darkMode ? "text-white" : "text-[#2b3442]"
+                } text-base md:text-[26px] font-[700] ml-[2px] md:ml-0`}
+              >
                 {props.userData.name ? props.userData.name : ""}
               </h2>
               <a
@@ -31,55 +39,99 @@ function UserProfile(props) {
               >
                 @{props.userData.login ? props.userData.login : ""}
               </a>
-              <span className="text-[13px] md:text-[15px] text-[#697c9a] font-[500] mt-[6px] md:mt-1 lg:hidden">
+              <span
+                className={`${
+                  props.darkMode ? "text-white" : " text-[#697c9a]"
+                } text-[13px] md:text-[15px] font-[500] mt-[6px] md:mt-1 lg:hidden`}
+              >
                 {day
                   ? `joined at ${day} ${month} ${year}`
                   : "Joined 25 Jan 2011"}
               </span>
             </div>
-            <span className="text-[13px] md:text-[15px] text-[#697c9a] font-[500] mt-[6px] md:mt-1 hidden lg:flex">
+            <span
+              className={`${
+                props.darkMode ? "text-white" : "text-[#697c9a]"
+              } text-[13px] md:text-[15px] font-[500] mt-[6px] md:mt-1 hidden lg:flex`}
+            >
               {day ? `joined at ${day} ${month} ${year}` : "Joined 25 Jan 2011"}
             </span>
           </div>
-          <p className="w-[279px] md:w-auto mt-[33px] md:mt-6 lg:mt-5 text-[13px] md:text-[15px] text-[#4b6a9b] font-[500] leading-[1.92] md:leading-[1.67] hidden lg:flex">
+          <p
+            className={`${
+              props.darkMode ? "text-white" : "text-[#4b6a9b]"
+            } w-[279px] md:w-auto mt-[33px] md:mt-6 lg:mt-5 text-[13px] md:text-[15px] font-[500] leading-[1.92] md:leading-[1.67] hidden lg:flex`}
+          >
             {props.userData.bio
               ? `${props.userData.bio}`
               : "This profile has no bio."}
           </p>
         </div>
       </div>
-      <p className="w-[279px] md:w-auto mt-[33px] md:mt-6 text-[13px] md:text-[15px] text-[#4b6a9b] font-[500] leading-[1.92] md:leading-[1.67] lg:hidden">
+      <p
+        className={`${
+          props.darkMode ? "text-white" : "text-[#4b6a9b]"
+        } w-[279px] md:w-auto mt-[33px] md:mt-6 text-[13px] md:text-[15px] font-[500] leading-[1.92] md:leading-[1.67] lg:hidden`}
+      >
         {props.userData.bio
           ? `${props.userData.bio}`
           : "This profile has no bio."}
       </p>
       <div>
-        <section className="w-[279px] md:w-[493px] h-[85px] bg-[#f6f8ff] rounded-[10px] flex items-center md:items-start justify-center md:justify-start gap-10 md:gap-[82px] mt-[23px] md:mt-8 lg:mt-[21px] md:pt-[15px] md:pl-8">
+        <section
+          className={`${
+            props.darkMode ? "bg-[#141d2f]" : "bg-[#f6f8ff]"
+          } w-[279px] md:w-[493px] h-[85px] rounded-[10px] flex items-center md:items-start justify-center md:justify-start gap-10 md:gap-[82px] mt-[23px] md:mt-8 lg:mt-[21px] md:pt-[15px] md:pl-8`}
+        >
           <div className="flex flex-col gap-2 md:gap-[2px] items-center md:items-start md:mr-[17px]">
-            <span className="text-[11px] md:text-[13px] text-[#4b6a9b] font-[500]">
+            <span
+              className={`${
+                props.darkMode ? "text-white" : "text-[#4b6a9b]"
+              } text-[11px] md:text-[13px] font-[500]`}
+            >
               Repos
             </span>
-            <span className="text-base md:text-[22px] text-[#2b3442] font-[700]">
+            <span
+              className={`${
+                props.darkMode ? "text-white" : "text-[#2b3442] "
+              } text-base md:text-[22px] font-[700]`}
+            >
               {props.userData.public_repos || props.userData.public_repos == 0
                 ? props.userData.public_repos
                 : "0"}
             </span>
           </div>
           <div className="flex flex-col gap-2 md:gap-[2px] items-center md:items-start">
-            <span className="text-[11px] md:text-[13px] text-[#4b6a9b] font-[500]">
+            <span
+              className={`${
+                props.darkMode ? "text-white" : "text-[#4b6a9b]"
+              } text-[11px] md:text-[13px] font-[500]`}
+            >
               Followers
             </span>
-            <span className="text-base md:text-[22px] text-[#2b3442] font-[700]">
+            <span
+              className={`${
+                props.darkMode ? "text-white" : "text-[#2b3442] "
+              } text-base md:text-[22px] font-[700]`}
+            >
               {props.userData.followers || props.userData.followers == 0
                 ? props.userData.followers
                 : "0"}
             </span>
           </div>
           <div className="flex flex-col gap-2 md:gap[2px] items-center md:items-start">
-            <span className="text-[11px] md:text-[13px] text-[#4b6a9b] font-[500]">
+            <span
+              className={`${
+                props.darkMode ? "text-white" : "text-[#4b6a9b]"
+              } text-[11px] md:text-[13px] font-[500]`}
+            >
               Following
             </span>
-            <span className="text-base md:text-[22px] text-[#2b3442] font-[700]">
+            <span
+              className={`${
+                props.darkMode ? "text-white" : "text-[#2b3442] "
+              } text-base md:text-[22px] font-[700]`}
+            >
               {props.userData.following || props.userData.following == 0
                 ? props.userData.following
                 : "0"}
@@ -99,7 +151,9 @@ function UserProfile(props) {
               <a
                 className={`${
                   props.userData.location ? "opacity-100" : "opacity-50"
-                } text-[13px] md:text-[15px] text-[#4b6a9b] font-[500]`}
+                } ${
+                  props.darkMode ? "text-white" : "text-[#4b6a9b]"
+                } text-[13px] md:text-[15px] font-[500]`}
               >
                 {props.userData.location
                   ? `${props.userData.location}`
@@ -122,7 +176,9 @@ function UserProfile(props) {
                 }`}
                 className={`${
                   props.userData.blog ? "opacity-100" : "opacity-50"
-                } text-[13px] md:text-[15px] text-[#4b6a9b] font-[500] hover:underline`}
+                } ${
+                  props.darkMode ? "text-white" : "text-[#4b6a9b]"
+                }  text-[13px] md:text-[15px] font-[500] hover:underline`}
               >
                 {props.userData.blog
                   ? `${props.userData.blog}`
@@ -142,7 +198,9 @@ function UserProfile(props) {
               <a
                 className={`${
                   props.userData.twitter_username ? "opacity-100" : "opacity-50"
-                } text-[13px] md:text-[15px] text-[#4b6a9b] font-[500]`}
+                } ${
+                  props.darkMode ? "text-white" : "text-[#4b6a9b]"
+                }  text-[13px] md:text-[15px] font-[500]`}
               >
                 {props.userData.twitter_username
                   ? `${props.userData.twitter_username}`
@@ -160,7 +218,9 @@ function UserProfile(props) {
               <a
                 className={`${
                   props.userData.company ? "opacity-100" : "opacity-50"
-                } text-[13px] md:text-[15px] text-[#4b6a9b] font-[500]`}
+                } ${
+                  props.darkMode ? "text-white" : "text-[#4b6a9b]"
+                }  text-[13px] md:text-[15px] font-[500]`}
               >
                 {props.userData.company
                   ? `${props.userData.company}`
