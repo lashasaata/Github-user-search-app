@@ -19,7 +19,7 @@ function UserProfile(props) {
           src={
             props.userData.avatar_url
               ? `${props.userData.avatar_url}`
-              : "/public/assets/octocat.png"
+              : "/assets/octocat.png"
           }
           alt="avatar"
         />
@@ -145,7 +145,7 @@ function UserProfile(props) {
                 className={`${
                   props.userData.location ? "opacity-100" : "opacity-50"
                 }`}
-                src="./assets/icon-location.svg"
+                src="/assets/icon-location.svg"
                 alt="location_icon"
               />
               <a
@@ -165,7 +165,7 @@ function UserProfile(props) {
                 className={`${
                   props.userData.blog ? "opacity-100" : "opacity-50"
                 }`}
-                src="./assets/icon-website.svg"
+                src="/assets/icon-website.svg"
                 alt="website_icon"
               />
               <a
@@ -192,7 +192,7 @@ function UserProfile(props) {
                 className={`${
                   props.userData.twitter_username ? "opacity-100" : "opacity-50"
                 }`}
-                src="./assets/icon-twitter.svg"
+                src="/assets/icon-twitter.svg"
                 alt="twitter_icon"
               />
               <a
@@ -212,7 +212,7 @@ function UserProfile(props) {
                 className={`${
                   props.userData.company ? "opacity-100" : "opacity-50"
                 }`}
-                src="./assets/icon-company.svg"
+                src="/assets/icon-company.svg"
                 alt="company_icon"
               />
               <a

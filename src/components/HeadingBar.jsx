@@ -59,17 +59,9 @@ function HeadingBar(props) {
             DARK
           </span>
           {props.darkMode ? (
-            <img
-              src="./public/assets/icon-sun.svg"
-              alt="moon_icon"
-              className=""
-            />
+            <img src="/assets/icon-sun.svg" alt="moon_icon" className="" />
           ) : (
-            <img
-              src="./public/assets/icon-moon.svg"
-              alt="sun_icon"
-              className=""
-            />
+            <img src="/assets/icon-moon.svg" alt="sun_icon" className="" />
           )}
         </div>
       </div>
@@ -90,7 +82,7 @@ function HeadingBar(props) {
         <div className="flex itens-center gap-[9px] md:gap-6">
           <img
             className="w-5 md:w-6 h-5 md:h-6"
-            src="./public/assets/icon-search.svg"
+            src="/assets/icon-search.svg"
             alt="search_icon"
           />
           <input
